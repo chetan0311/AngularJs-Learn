@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>body { font-size: 1.5em; }</style>
+    <title>SHOPPING LIST CHECKOFF</title>
+  </head>
+  <body ng-app="ShoppingListCheckoff">
+    <h1>Low Cohesion and Tight Coupling</h1>
+    <div ng-controller="BuyingList as list">
+      <h2>To Buy:</h2>
+      <ol>
+          <li ng-repeat="item in list.items">
+              Buy {{ item.quantity }} {{ item.name }}
+              <button ng-click="list.buy($index)" class="btn btn-default">Bougth</button>
+          </li>
+
+      </ol>
+      <div ng-if="list.items.length==0">All Items Sold.</div>
+    </div>
+
+
+    <div ng-controller="AlreadybougthList as list">
+      <h2>To Buy:</h2>
+      <ol>
+          <li ng-repeat="item in list.items">
+              Buy {{ item.quantity }} {{ item.name }}
+
+          </li>
+
+      </ol>
+
+      <div ng-if="list.items.length==0">No Item Bougth Yet.</div>
+    </div>
+  </body>
+</html>
